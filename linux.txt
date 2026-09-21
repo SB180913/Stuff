@@ -1,0 +1,39 @@
+"""
+Sophia Babayev, Section 10
+Use directories within linux to find specific files and search content of such files.
+"""
+
+Last login: Mon Sep 21 12:57:30 on ttys000
+sophiababayev@Sophias-MacBook-Air ~ % ssh linuxuser@cmsc201.sourque.com -p 2223
+linuxuser@cmsc201.sourque.com's password: 
+
+#using the cool command to access the first flag
+
+45a72eda35bf:~$ cool-command gimmeflag
+CMSC201{off_to_the_races!}
+
+#change directory with cd and the list out all the files with ls
+
+45a72eda35bf:~$ cd /files/folder1/folder2
+45a72eda35bf:/files/folder1/folder2$ ls
+
+#read the file README.txt with the cat comannd
+
+CMSC201{cd_complete!}  README.txt
+45a72eda35bf:/files/folder1/folder2$ cat README.txt
+The flag you are looking for is, from the root directory, in etc/flag_here.txt!
+45a72eda35bf:/files/folder1/folder2$ cat /etc/flag_here.txt
+CMSC201{cat_has_been_found}
+
+#with the find command you get the file flag.txt
+
+45a72eda35bf:/files/folder1/folder2$ find /complex -name "flag.txt"
+/complex/folder1/subfolder8/flag.txt
+45a72eda35bf:/files/folder1/folder2$ cat /complex/folder1/subfolder8/flag.txt
+
+#using the grep command you find the specific line with CMSC201
+
+CMSC201{finding_find}
+45a72eda35bf:/files/folder1/folder2$ grep "CMSC201" /bad-story
+CMSC201{what_does_grep_even_mean}
+45a72eda35bf:/files/folder1/folder2$ 
