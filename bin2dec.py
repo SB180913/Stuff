@@ -1,6 +1,6 @@
 """
 Sophia Babayev, Section 10
-C10onvert a binary string to decimal.
+Convert a binary string to decimal.
 """
 
 binary_string = input()
