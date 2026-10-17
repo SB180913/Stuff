@@ -21,8 +21,9 @@ else:
 			condiments.append(ingredient)
 		ingredient = input().strip().lower()
 
+	condiment_text = ", ".join(condiments) if condiments else "No condiments"
 	print(
 		f"You have created a {type_count}-{sandwich_type} sandwich "
-		f"with the condiments: {', '.join(condiments)}"
+		f"with the condiments: {condiment_text}"
 	)
 
