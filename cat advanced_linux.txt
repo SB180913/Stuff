@@ -1,0 +1,200 @@
+"""
+Sophia Babayev, Section 10
+Linux
+"""
+
+
+Last login: Fri Oct 23 11:34:18 on ttys000
+sophiababayev@Sophias-MacBook-Air ~ % ssh linuxuser@cmsc201.sourque.com -p 2224
+The authenticity of host '[cmsc201.sourque.com]:2224 ([167.172.15.1]:2224)' can't be established.
+ED25519 key fingerprint is SHA256:AKXGlQJ1O36/fRMNf7Ip576oVMJBUF70LewJrI0eRSs.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '[cmsc201.sourque.com]:2224' (ED25519) to the list of known hosts.
+linuxuser@cmsc201.sourque.com's password: 
+
+
+#Executed cool-command with the -f option followed by the arguments "gimme", "flag", and "please" in the correct order.
+
+01238288253e:~$ cool-command -f gimme flag please
+CMSC201{wow_i_love_linux}
+
+
+
+#Navigated through directories using cd, checked files with ls, and read sign.txt clues using cat to reach /cd-maze/dungeon/tunnel27/exit/beach/pier10 for the flag.
+
+01238288253e:~$ cd /cd-maze
+01238288253e:/cd-maze$ cd dungeon
+01238288253e:/cd-maze/dungeon$ cd eight tunnel
+-sh: cd: can't cd to eight: No such file or directory
+01238288253e:/cd-maze/dungeon$ ls
+tunnel1   tunnel14  tunnel19  tunnel23  tunnel28  tunnel5
+tunnel10  tunnel15  tunnel2   tunnel24  tunnel29  tunnel6
+tunnel11  tunnel16  tunnel20  tunnel25  tunnel3   tunnel7
+tunnel12  tunnel17  tunnel21  tunnel26  tunnel30  tunnel8
+tunnel13  tunnel18  tunnel22  tunnel27  tunnel4   tunnel9
+01238288253e:/cd-maze/dungeon$ cd tunnel18
+01238288253e:/cd-maze/dungeon/tunnel18$ cat
+^Z[1]+  Stopped                    cat
+01238288253e:/cd-maze/dungeon/tunnel18$ cat tunnel8
+cat: can't open 'tunnel8': No such file or directory
+01238288253e:/cd-maze/dungeon/tunnel18$ cd tunnel8
+-sh: cd: can't cd to tunnel8: No such file or directory
+01238288253e:/cd-maze/dungeon/tunnel18$ cd ..
+01238288253e:/cd-maze/dungeon$ cd tunnel8
+01238288253e:/cd-maze/dungeon/tunnel8$ cat tunnel8
+cat: can't open 'tunnel8': No such file or directory
+01238288253e:/cd-maze/dungeon/tunnel8$ cat
+^Z[2]+  Stopped                    cat
+01238288253e:/cd-maze/dungeon/tunnel8$ cat sign
+cat: can't open 'sign': No such file or directory
+01238288253e:/cd-maze/dungeon/tunnel8$ cat sign tunnel8
+cat: can't open 'sign': No such file or directory
+cat: can't open 'tunnel8': No such file or directory
+01238288253e:/cd-maze/dungeon/tunnel8$ ls
+sign.txt
+01238288253e:/cd-maze/dungeon/tunnel8$ cat sign.text
+cat: can't open 'sign.text': No such file or directory
+01238288253e:/cd-maze/dungeon/tunnel8$ cat sign.txt
+Turn around and go into tunnel 21!
+01238288253e:/cd-maze/dungeon/tunnel8$ cd ..
+01238288253e:/cd-maze/dungeon$ cd tunnel27
+01238288253e:/cd-maze/dungeon/tunnel27$ cat tunnel27
+cat: can't open 'tunnel27': No such file or directory
+01238288253e:/cd-maze/dungeon/tunnel27$ ls
+exit
+01238288253e:/cd-maze/dungeon/tunnel27$ cd ..
+01238288253e:/cd-maze/dungeon$ cd tunnel27
+01238288253e:/cd-maze/dungeon/tunnel27$ la
+-sh: la: not found
+01238288253e:/cd-maze/dungeon/tunnel27$ ls
+exit
+01238288253e:/cd-maze/dungeon/tunnel27$ exit
+You have stopped jobs.
+01238288253e:/cd-maze/dungeon/tunnel27$ cd ..
+01238288253e:/cd-maze/dungeon$ cd tunnel21
+01238288253e:/cd-maze/dungeon/tunnel21$ ls
+sign.txt
+01238288253e:/cd-maze/dungeon/tunnel21$ cat sign.txt
+The wisdom you seek is in number 10...
+01238288253e:/cd-maze/dungeon/tunnel21$ cd ..
+01238288253e:/cd-maze/dungeon$ cd tunnel10
+01238288253e:/cd-maze/dungeon/tunnel10$ ls
+01238288253e:/cd-maze/dungeon/tunnel10$ cat tunnel10
+cat: can't open 'tunnel10': No such file or directory
+01238288253e:/cd-maze/dungeon/tunnel10$ ls
+01238288253e:/cd-maze/dungeon/tunnel10$ cd tunnel10
+-sh: cd: can't cd to tunnel10: No such file or directory
+01238288253e:/cd-maze/dungeon/tunnel10$ ls -a
+.   ..
+01238288253e:/cd-maze/dungeon/tunnel10$ cat .  ..
+cat: read error: Is a directory
+cat: read error: Is a directory
+01238288253e:/cd-maze/dungeon/tunnel10$ cat .   ..
+cat: read error: Is a directory
+cat: read error: Is a directory
+01238288253e:/cd-maze/dungeon/tunnel10$ cd ..
+01238288253e:/cd-maze/dungeon$ cd tunnel27
+01238288253e:/cd-maze/dungeon/tunnel27$ ls -a
+.     ..    exit
+01238288253e:/cd-maze/dungeon/tunnel27$ ls -la
+total 12
+drwxr-xr-x    3 root     root          4096 Oct 17 04:38 .
+drwxr-xr-x   32 root     root          4096 Oct 17 04:38 ..
+drwxr-xr-x    3 root     root          4096 Oct 17 04:38 exit
+01238288253e:/cd-maze/dungeon/tunnel27$ cd exit
+01238288253e:/cd-maze/dungeon/tunnel27/exit$ ls -la
+total 12
+drwxr-xr-x    3 root     root          4096 Oct 17 04:38 .
+drwxr-xr-x    3 root     root          4096 Oct 17 04:38 ..
+drwxr-xr-x   32 root     root          4096 Oct 17 04:38 beach
+01238288253e:/cd-maze/dungeon/tunnel27/exit$ cd beach
+01238288253e:/cd-maze/dungeon/tunnel27/exit/beach$ ls -la
+total 128
+drwxr-xr-x   32 root     root          4096 Oct 17 04:38 .
+drwxr-xr-x    3 root     root          4096 Oct 17 04:38 ..
+drwxr-xr-x    2 root     root          4096 Oct 17 04:38 pier1
+drwxr-xr-x    2 root     root          4096 Oct 17 04:38 pier10
+drwxr-xr-x    2 root     root          4096 Oct 17 04:38 pier11
+drwxr-xr-x    2 root     root          4096 Oct 17 04:38 pier12
+drwxr-xr-x    2 root     root          4096 Oct 17 04:38 pier13
+drwxr-xr-x    2 root     root          4096 Oct 17 04:38 pier14
+drwxr-xr-x    2 root     root          4096 Oct 17 04:38 pier15
+drwxr-xr-x    2 root     root          4096 Oct 17 04:38 pier16
+drwxr-xr-x    2 root     root          4096 Oct 17 04:38 pier17
+drwxr-xr-x    2 root     root          4096 Oct 17 04:38 pier18
+drwxr-xr-x    2 root     root          4096 Oct 17 04:38 pier19
+drwxr-xr-x    2 root     root          4096 Oct 17 04:38 pier2
+drwxr-xr-x    2 root     root          4096 Oct 17 04:38 pier20
+drwxr-xr-x    2 root     root          4096 Oct 17 04:38 pier21
+drwxr-xr-x    2 root     root          4096 Oct 17 04:38 pier22
+drwxr-xr-x    2 root     root          4096 Oct 17 04:38 pier23
+drwxr-xr-x    2 root     root          4096 Oct 17 04:38 pier24
+drwxr-xr-x    2 root     root          4096 Oct 17 04:38 pier25
+drwxr-xr-x    2 root     root          4096 Oct 17 04:38 pier26
+drwxr-xr-x    2 root     root          4096 Oct 17 04:38 pier27
+drwxr-xr-x    2 root     root          4096 Oct 17 04:38 pier28
+drwxr-xr-x    2 root     root          4096 Oct 17 04:38 pier29
+drwxr-xr-x    2 root     root          4096 Oct 17 04:38 pier3
+drwxr-xr-x    2 root     root          4096 Oct 17 04:38 pier30
+drwxr-xr-x    2 root     root          4096 Oct 17 04:38 pier4
+drwxr-xr-x    2 root     root          4096 Oct 17 04:38 pier5
+drwxr-xr-x    2 root     root          4096 Oct 17 04:38 pier6
+drwxr-xr-x    2 root     root          4096 Oct 17 04:38 pier7
+drwxr-xr-x    2 root     root          4096 Oct 17 04:38 pier8
+drwxr-xr-x    2 root     root          4096 Oct 17 04:38 pier9
+01238288253e:/cd-maze/dungeon/tunnel27/exit/beach$ cd pier10
+01238288253e:/cd-maze/dungeon/tunnel27/exit/beach/pier10$ ls -la
+total 12
+drwxr-xr-x    2 root     root          4096 Oct 17 04:38 .
+drwxr-xr-x   32 root     root          4096 Oct 17 04:38 ..
+-rw-r--r--    1 root     root            57 Oct 17 04:38 sign.txt
+01238288253e:/cd-maze/dungeon/tunnel27/exit/beach/pier10$ cd sign.txt
+-sh: cd: can't cd to sign.txt: Not a directory
+01238288253e:/cd-maze/dungeon/tunnel27/exit/beach/pier10$ cat sign.txt
+Nice work :) Your flag is: CMSC201{gold_medal_in_cd-ing}
+
+
+#Chained multiple grep commands using pipes (|) to filter /i_love_soup.txt for all five ingredients simultaneously to find the correct recipe line and flag.
+
+
+01238288253e:/cd-maze/dungeon/tunnel27/exit/beach/pier10$ grep "broccoli" /i_lov
+e_soup.txt | grep "mushroom" | grep "pumpkin" | grep "lentil" | grep "tomato"
+tomato broccoli mushroom lentil pumpkin seaweed CMSC201{ended_up_being_recipe_777}
+
+
+#Listed directory permissions using ls -la /my_recipes, identified the file with -rw-r--r-- (644) permissions, and displayed its contents using cat.
+
+
+sophiababayev@Sophias-MacBook-Air ~ % ssh linuxuser@cmsc201.sourque.com -p 2224
+linuxuser@cmsc201.sourque.com's password: 
+
+01238288253e:~$ ls -la /my_recipes
+total 52
+drwxr-xr-x    2 root     root          4096 Oct 17 04:38 .
+drwxr-xr-x    1 root     root          4096 Oct 17 04:38 ..
+-rw-------    1 root     root            24 Oct 17 04:38 barbine.txt
+-r-xr---w-    1 root     root            24 Oct 17 04:38 bavette.txt
+-rw-r--rw-    1 root     root            25 Oct 17 04:38 bucatini.txt
+-------rwx    1 root     root            26 Oct 17 04:38 capellini.txt
+--wx--x--x    1 root     root            25 Oct 17 04:38 fedelini.txt
+-rw-r---w-    1 root     root            27 Oct 17 04:38 fettuccine.txt
+-rwxrwxrwx    1 root     root            23 Oct 17 04:38 fileja.txt
+--wxrwxr--    1 root     root            25 Oct 17 04:38 lasagneo.txt
+-rw-r--r--    1 root     root            25 Oct 17 04:38 linguine.txt
+-r--r--r-x    1 root     root            28 Oct 17 04:38 pappardelle.txt
+--w-r--rw-    1 root     root            25 Oct 17 04:38 spagheti.txt
+01238288253e:~$ cat linguine.txt
+cat: can't open 'linguine.txt': No such file or directory
+01238288253e:~$ cat /my_recipes/linguine.txt
+CMSC201{i_love_linguine}
+01238288253e:~$ 
+
+
+#Ran secret-error 2>/dev/null` to hide error messages. keeping only the clean output
+
+
+01238288253e:~$ secret-eerror 2>/dev/null
+01238288253e:~$ secret-error 2>/dev/null
+CMSC201{error_more_like...uhhh...cool-or...}
+01238288253e:~$ 
