@@ -1,6 +1,6 @@
 """
 Sophia Babayev, Section 10
-
+Finds the most common word in the input lines
 """
 
 import string
